@@ -177,7 +177,8 @@ sign-language-recognition/
 | Camera shows black / permission denied | Allow camera access in the browser bar; close other apps using the webcam |
 | WebRTC connects but no video on a corporate network | Symmetric NAT/firewall - add a TURN server to `rtc_configuration` in `app.py` |
 | `mediapipe` install fails | Use Python 3.10-3.12 (no 3.13+ wheels); we verified 1.1.1 on 3.12 |
-| `libGL.so.1` / apt errors when deploying | Solved by shipping **headless OpenCV** (`opencv-contrib-python-headless`, listed after `mediapipe` in `requirements.txt`) - no system GL packages needed. Avoid `packages.txt` on the current cloud image (apt installs are unreliable there) |
+| `libGL.so.1` / apt errors when deploying | The GUI build of OpenCV needs `libGL.so.1`; we ship **headless OpenCV** instead (listed after `mediapipe` in `requirements.txt`) |
+| `libEGL.so.1` / `libGLESv2.so.2` errors on Streamlit Cloud | MediaPipe's native libraries need the GL stack - `packages.txt` installs `libegl1`, `libgles2`, `libgl1` via apt at build time. If apt ever fails with "Unable to locate package", it is a transient platform issue - retry the build |
 | Custom model tab says TensorFlow missing | `pip install -r requirements-train.txt` (intentionally not in cloud requirements) |
 | Same word commits repeatedly | Raise *Cooldown* / *Stability* sliders, or lower your hand between signs |
 | Low FPS in the cloud | Switch sidebar camera quality to **Low**; run heavy use locally |
