@@ -1,5 +1,9 @@
 # SignAI - Real-Time Sign Language Recognition
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black.svg)](https://share.streamlit.io/deploy?repository=Daniyal2005-dh/sign-language-recognition&branch=main&mainModule=app.py)
+
+**🎯 Live app: <https://sign-language-rec.streamlit.app/>** — open it, allow the camera, and start signing.
+
 Turn hand signs into words and speech, live from your webcam.
 
 **Stack:** Python · OpenCV · MediaPipe (21 hand landmarks) · TensorFlow/Keras (LSTM & Transformer) · scikit-learn · Streamlit · streamlit-webrtc · gTTS / Web Speech
