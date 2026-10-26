@@ -172,7 +172,8 @@ sign-language-recognition/
 |---|---|
 | Camera shows black / permission denied | Allow camera access in the browser bar; close other apps using the webcam |
 | WebRTC connects but no video on a corporate network | Symmetric NAT/firewall - add a TURN server to `rtc_configuration` in `app.py` |
-| `mediapipe` install fails | Use Python 3.10-3.12 (no 3.13 wheels yet); we verified 1.1.1 on 3.12 |
+| `mediapipe` install fails | Use Python 3.10-3.12 (no 3.13+ wheels); we verified 1.1.1 on 3.12 |
+| `libGL.so.1` / apt errors when deploying | Solved by shipping **headless OpenCV** (`opencv-contrib-python-headless`, listed after `mediapipe` in `requirements.txt`) - no system GL packages needed. Avoid `packages.txt` on the current cloud image (apt installs are unreliable there) |
 | Custom model tab says TensorFlow missing | `pip install -r requirements-train.txt` (intentionally not in cloud requirements) |
 | Same word commits repeatedly | Raise *Cooldown* / *Stability* sliders, or lower your hand between signs |
 | Low FPS in the cloud | Switch sidebar camera quality to **Low**; run heavy use locally |

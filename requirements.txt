@@ -1,9 +1,13 @@
 # SignAI - runtime dependencies (the Streamlit app, local AND cloud deployment).
 # Versions pinned to a set verified together on Python 3.12 (see CI).
+#
+# Headless OpenCV: the cloud image needs no libGL/system packages. It is listed
+# AFTER mediapipe (which depends on the GUI build of opencv-contrib-python) so
+# the headless cv2 binaries win the file overlap - see README troubleshooting.
 streamlit==1.66.1
 streamlit-webrtc==0.79.0
 mediapipe==1.1.1
-opencv-contrib-python==5.0.0.93
+opencv-contrib-python-headless==5.0.0.93
 numpy==2.5.4
 pandas>=2.1
 gtts>=2.4
