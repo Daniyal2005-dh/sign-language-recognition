@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signai"
+version = "1.0.0"
+description = "Real-time sign language recognition: MediaPipe hand landmarks + LSTM/Transformer classifiers + Streamlit app"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Daniyal Hussain" }]
+keywords = ["sign-language", "asl", "mediapipe", "lstm", "computer-vision"]
+
+[project.optional-dependencies]
+train = ["tensorflow>=2.20", "scikit-learn>=1.6", "matplotlib>=3.9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

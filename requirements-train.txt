@@ -1,0 +1,8 @@
+# SignAI - training dependencies (data collection works without these; only
+# train.py and loading custom models need TensorFlow).
+# Install with:  pip install -r requirements-train.txt
+-r requirements.txt
+tensorflow>=2.20
+scikit-learn>=1.6
+matplotlib>=3.9
+pyttsx3>=2.90

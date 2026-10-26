@@ -1,0 +1,25 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Project artefacts (generated locally)
+data/
+reports/
+*.keras
+*.mp3
+
+# Models: keep the two pretrained .task files, ignore trained artefacts
+models/*
+!models/gesture_recognizer.task
+!models/hand_landmarker.task
+!models/.gitkeep
+
+# Environment / OS
+.env
+.DS_Store
+Thumbs.db
