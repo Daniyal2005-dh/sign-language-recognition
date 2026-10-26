@@ -1,1 +1,3 @@
 libegl1
+libgles2
+libgl1
